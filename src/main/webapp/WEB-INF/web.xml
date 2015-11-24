@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  
+  <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:/applicationContext.xml
+		</param-value>
+	</context-param>
+  
+  <servlet>  
+    <servlet-name>hessian</servlet-name>  
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+    <init-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>/WEB-INF/hessian-simple.xml</param-value>  
+    </init-param>  
+    <load-on-startup>1</load-on-startup>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>hessian</servlet-name>  
+    <url-pattern>*.hessian</url-pattern>  
+  </servlet-mapping> 
+  
+  <!-- 定义hessian认证 -->
+  <!-- <security-constraint>
+     <web-resource-collection>
+       <web-resource-name>Hessian Security</web-resource-name>
+       <url-pattern>*.hessian</url-pattern>
+     </web-resource-collection>
+     <auth-constraint>
+        <role-name>Hessian</role-name>
+     </auth-constraint>    
+  </security-constraint> -->
+  
+  <!-- Define the Login Configuration for this Application -->
+  <!-- <login-config>
+     <auth-method>BASIC</auth-method>
+     <realm-name>Hessian Security</realm-name>
+  </login-config> -->
+ 
+  <!-- Security roles referenced by this web application -->
+  <!-- <security-role>
+     <description></description>
+     <role-name>Hessian</role-name>
+  </security-role> -->
+  
+</web-app>
+        
